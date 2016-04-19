@@ -1,0 +1,11 @@
+<div class="container login-container"  ng-controller="LoginController">
+    
+    <form id="logginForm" class="login-form">
+        <label>Log In : </label>
+        <input id="email" name="email" type="text" placeholder="email" class="login-input" ng-model="email" />
+        <input id="password" name="password" type="password" placeholder="password" class="login-input" ng-model="password" />
+        <button id="login-button" class="button login-button" ng-click="loggin()">Log In</button>
+        <button id="create-button" class="button other-button" ng-click="createUser()">Create an account</button>
+    </form>
+    <div id="login-status" class="login-error error">{{ loginStatus }}</div>
+</div>

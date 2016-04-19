@@ -1,0 +1,13 @@
+<div class="container rooms-container"  ng-controller="RoomsViewController">
+
+    <div class="rooms-list">
+        <ul ng-if="rooms.length > 0">
+            <li ng-repeat="room in rooms track by $index">
+                <div>
+                    <div class="room-name">{{room.name}}</div>
+                    <div class="button" ng-click="join(room)">Join</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

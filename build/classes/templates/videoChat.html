@@ -1,0 +1,37 @@
+<div ng-controller="PeopleListController">
+
+
+    <div class="left-col" style="left:{{listPosition}}">
+        <div class="list-element">
+            <div class="user-name">{{userFullName}}</div>
+            <button class="button logout-button" ng-click="logout()">Log out</button>
+        </div>
+        <ul class="list" ng-show="remoteParties.length">
+            <li ng-repeat="user in remoteParties track by user.sid">
+                <div class="list-element">
+                    <div class="user-name">{{user.firstname}}</div>
+                    <button class="button call-button" id="button-{{user.sid.substring(2)}}" ng-click="user.action()">
+                        {{user.callButtonText}}
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="left-pannel-top" ng-click="showHideList()">
+        Show/Hide
+    </div>
+</div>
+
+<div class="center-col">
+
+    <div ng-controller="ChatViewController">
+        <div class="video_container" ng-repeat="user in remoteParties track by user.sid" id="container_{{user.UID}}">
+            <video ng-show="user.videoFeed" id="video_{{user.UID}}" ng-src="{{user.videoSource}}" class="remote-webcam-feed" autoplay></video>
+        </div>
+    </div>
+
+
+    <video class="local-webcam-feed" lw-video autoplay></video>
+
+</div>

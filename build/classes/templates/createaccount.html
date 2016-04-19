@@ -1,0 +1,15 @@
+<div class="container login-container" ng-controller="CreateAccountController">
+    <form id="createAccountForm" class="login-form">
+        <label>Create your account : </label>
+        <!--
+        <input name="firstName" type="text" placeholder="First Name" ng-model="firstName.value" ng-change="verifyPassword()">
+        <input name="lastName" type="text" placeholder="Last Name" ng-model="lastName.value" ng-change="verifyPassword()">
+        <input name="email" type="text" placeholder="email@exemple.com" ng-model="email.value" ng-change="verifyPassword()">
+        <input name="password" type="password" placeholder="password" ng-model="password.value" ng-change="verifyPassword()">
+        <input name="passwordConfirm" type="password" placeholder="Confirm your password" ng-model="passwordConfirm.value" ng-change="verifyPassword()"><div id="passwordCheck"></div>
+        -->
+        <input ng-repeat="field in fields" name="{{field.name}}" type="{{field.type}}" placeholder="{{field.placeHolder}}" ng-model="field.value" ng-change="verifyPassword()" class="{{field.valid ? 'valid' : 'invalid'}}"/>
+        <button ng-click="createAccount()" class="button login-button" ng-disabled="!(fields.firstName.valid && fields.lastName.valid && fields.email.valid && fields.password.valid && fields.passwordConfirm.valid)">Create Account</button>
+        <button ng-click="cancel()" class="button other-button">Cancel</button>
+    </form>
+</div>
